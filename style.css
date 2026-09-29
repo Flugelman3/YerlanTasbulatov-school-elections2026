@@ -1,0 +1,850 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: "Inter", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --white: #ffffff;
+    --black: #050505;
+    --gray: #999999;
+    --dark-gray: #151515;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 150px 0;
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* =========================
+   CURSOR GLOW
+========================= */
+
+.cursor-glow {
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.035);
+
+    filter: blur(50px);
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 100;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid #222;
+}
+
+
+.hero-bg {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #222 0%,
+            #080808 45%,
+            #050505 100%
+        );
+
+    z-index: -2;
+}
+
+
+.hero-bg::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+
+.hero-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 1300px;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+
+.hero-small {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+
+.hero-title {
+    position: relative;
+
+    z-index: 3;
+
+    font-size: clamp(70px, 12vw, 180px);
+
+    line-height: 0.78;
+
+    font-weight: 900;
+
+    letter-spacing: -8px;
+
+    text-transform: uppercase;
+}
+
+
+.hero-title .line {
+    display: block;
+}
+
+
+.candidate-name {
+    display: block;
+
+    font-size: clamp(30px, 5vw, 70px);
+
+    letter-spacing: -2px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   HERO PHOTO
+========================= */
+
+.candidate-photo {
+
+    position: absolute;
+
+    width: min(390px, 55vw);
+    height: min(540px, 65vh);
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(100px);
+
+    opacity: 0;
+
+    z-index: 2;
+
+    animation: photoAppear 1.5s cubic-bezier(.16,1,.3,1) 0.8s forwards;
+}
+
+
+.candidate-photo img {
+
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%)
+            contrast(1.1);
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 70%,
+            transparent 100%
+        );
+}
+
+
+@keyframes photoAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll-down {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    z-index: 5;
+}
+
+
+.arrow {
+
+    font-size: 24px;
+
+    animation: arrowMove 1.5s infinite;
+}
+
+
+@keyframes arrowMove {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #f5f5f5;
+
+    color: #050505;
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+
+.about-image {
+
+    position: relative;
+}
+
+
+.about-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid #000;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 0;
+}
+
+
+.about-image img {
+
+    position: relative;
+
+    z-index: 1;
+
+    aspect-ratio: 4 / 5;
+
+    filter: grayscale(100%);
+}
+
+
+.section-number {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+    color: #777;
+}
+
+
+.about h2 {
+
+    font-size: clamp(50px, 7vw, 100px);
+
+    line-height: .9;
+
+    margin-bottom: 40px;
+
+    letter-spacing: -5px;
+}
+
+
+.about-text p:not(.section-number) {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    max-width: 600px;
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+.reasons {
+
+    background: #050505;
+}
+
+
+.section-heading {
+
+    margin-bottom: 100px;
+}
+
+
+.section-heading h2 {
+
+    font-size: clamp(55px, 9vw, 130px);
+
+    line-height: .85;
+
+    letter-spacing: -7px;
+}
+
+
+.section-heading h2 span {
+
+    color: #666;
+}
+
+
+.reasons-list {
+
+    border-top: 1px solid #333;
+}
+
+
+.reason {
+
+    display: grid;
+
+    grid-template-columns: 150px 1fr;
+
+    gap: 50px;
+
+    padding: 50px 0;
+
+    border-bottom: 1px solid #333;
+
+    transition: .4s;
+}
+
+
+.reason:hover {
+
+    padding-left: 30px;
+
+    background: #0c0c0c;
+}
+
+
+.reason-number {
+
+    font-size: 14px;
+
+    color: #777;
+
+    letter-spacing: 2px;
+}
+
+
+.reason h3 {
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+
+    letter-spacing: -1px;
+}
+
+
+.reason p {
+
+    color: #999;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+
+    background: #fff;
+
+    color: #050505;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.quote-small {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 40px;
+
+    color: #777;
+}
+
+
+.quote h2 {
+
+    font-size: clamp(55px, 10vw, 150px);
+
+    line-height: .82;
+
+    letter-spacing: -8px;
+}
+
+
+.quote h2 span {
+
+    color: #aaa;
+}
+
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+.instagram {
+
+    background: #111;
+
+    text-align: center;
+}
+
+
+.instagram-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.instagram h2 {
+
+    font-size: clamp(60px, 9vw, 130px);
+
+    letter-spacing: -6px;
+
+    margin-bottom: 30px;
+}
+
+
+.instagram p:not(.section-number) {
+
+    color: #999;
+
+    max-width: 500px;
+
+    line-height: 1.7;
+
+    margin-bottom: 40px;
+}
+
+
+.instagram-button {
+
+    border: 1px solid white;
+
+    color: white;
+
+    padding: 20px 45px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    transition: .4s;
+}
+
+
+.instagram-button:hover {
+
+    background: white;
+
+    color: black;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: #000;
+}
+
+
+.footer-small {
+
+    color: #777;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 40px;
+}
+
+
+.footer h2 {
+
+    font-size: clamp(60px, 11vw, 160px);
+
+    line-height: .8;
+
+    letter-spacing: -8px;
+}
+
+
+.footer h2 span {
+
+    color: #777;
+}
+
+
+.footer-bottom {
+
+    margin-top: 60px;
+
+    color: #555;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.reveal-left {
+
+    opacity: 0;
+
+    transform: translateX(-80px);
+
+    transition: 1s cubic-bezier(.16,1,.3,1);
+}
+
+
+.reveal-left.active {
+
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+.reveal-right {
+
+    opacity: 0;
+
+    transform: translateX(80px);
+
+    transition: 1s cubic-bezier(.16,1,.3,1);
+}
+
+
+.reveal-right.active {
+
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+.delay-1 {
+    transition-delay: .15s;
+}
+
+
+.delay-2 {
+    transition-delay: .3s;
+}
+
+
+.delay-3 {
+    transition-delay: .45s;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .section {
+        padding: 100px 0;
+    }
+
+
+    .hero-title {
+
+        letter-spacing: -4px;
+
+        font-size: 18vw;
+
+    }
+
+
+    .candidate-photo {
+
+        width: 65vw;
+
+        height: 60vh;
+
+    }
+
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+
+    }
+
+
+    .about h2 {
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .reason {
+
+        grid-template-columns: 50px 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .reason h3 {
+
+        font-size: 28px;
+
+    }
+
+
+    .reason p {
+
+        font-size: 15px;
+
+    }
+
+
+    .section-heading h2 {
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .quote h2 {
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .footer h2 {
+
+        letter-spacing: -4px;
+
+    }
+
+}
