@@ -145,12 +145,11 @@ img {
 
 .hero-small {
     font-size: 12px;
-
     letter-spacing: 5px;
-
     color: #aaa;
-
     margin-bottom: 25px;
+
+    transform: translateY(-80px);
 }
 
 
