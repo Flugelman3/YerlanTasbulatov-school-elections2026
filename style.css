@@ -726,6 +726,8 @@ img {
         letter-spacing: -4px;
 
         font-size: 18vw;
+        
+        transform: translateY(-50px);
 
     }
 
