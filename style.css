@@ -156,18 +156,15 @@ img {
 
 .hero-title {
     position: relative;
-
     z-index: 3;
 
     font-size: clamp(70px, 12vw, 180px);
-
     line-height: 0.78;
-
     font-weight: 900;
-
     letter-spacing: -8px;
-
     text-transform: uppercase;
+
+    transform: translateY(-80px);
 }
 
 
