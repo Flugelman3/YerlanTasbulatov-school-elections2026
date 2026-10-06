@@ -1,7 +1,3 @@
-/* =========================
-   SCROLL REVEAL
-========================= */
-
 const elements = document.querySelectorAll(
     ".reveal, .reveal-left, .reveal-right"
 );
@@ -36,11 +32,6 @@ elements.forEach((element) => {
 
 });
 
-
-/* =========================
-   CURSOR GLOW
-========================= */
-
 const cursor = document.querySelector(".cursor-glow");
 
 
@@ -51,11 +42,6 @@ document.addEventListener("mousemove", (event) => {
     cursor.style.top = event.clientY + "px";
 
 });
-
-
-/* =========================
-   PARALLAX
-========================= */
 
 const heroPhoto =
     document.querySelector(".candidate-photo");
@@ -75,10 +61,6 @@ window.addEventListener("scroll", () => {
 
 });
 
-
-/* =========================
-   IMAGE ERROR
-========================= */
 
 const images =
     document.querySelectorAll("img");
