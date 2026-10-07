@@ -146,11 +146,14 @@ img {
 .hero-small {
     position: relative;
     z-index: 10;
+
     font-size: 12px;
     letter-spacing: 5px;
     color: #aaa;
-    margin-bottom: 45px;
-    transform: translateY(-80px);
+
+    margin-bottom: 60px;
+
+    transform: translateY(-120px);
 }
 
 
@@ -164,7 +167,7 @@ img {
     letter-spacing: -8px;
     text-transform: uppercase;
 
-    transform: translateY(-45px);
+    top: -90px;
 }
 
 
@@ -192,7 +195,7 @@ img {
     width: min(390px, 55vw);
     height: min(540px, 65vh);
 
-    bottom: 0;
+    bottom: -40px;
 
     left: 50%;
 
